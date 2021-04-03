@@ -11,7 +11,34 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="min-h-screen bg-gray-100 flex flex-col">
+    <header>
+      <!-- This example requires Tailwind CSS v2.0+ -->
+      <nav class="bg-white shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <div class="flex">
+              <div class="flex-shrink-0 flex items-center text-green-500 text-2xl uppercase">
+                Playground
+              </div>
+              <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                <%= link_to tweets_path, class: "text-gray-900 inline-flex items-center px-1 pt-1 text-sm font-medium" do %>
+                  Tweets
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-grow">
+      <div>
+        <%= yield %>
+      </div>
+    </main>
+    <footer class="bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      </div>
+    </footer>
   </body>
 </html>

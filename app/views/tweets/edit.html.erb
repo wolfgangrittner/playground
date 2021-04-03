@@ -1,6 +1,7 @@
-<h1>Editing Tweet</h1>
+<div class=" flex items-baseline justify-end space-x-3 mb-3">
+  <%= link_to 'Delete', @tweet, method: :delete, data: { confirm: 'Are you sure?' }, class: "border border-red-100 rounded shadow-sm text-red-800 bg-red-50 px-2 py-1 hover:bg-red-500 hover:text-red-50 transition delay-250" %>
+  <%= link_to 'Cancel', tweets_path, class: "rounded shadow-sm text-gray-600 bg-transparent border border-gray-300 px-2 py-1 hover:bg-gray-50 hover:text-gray-900 transition delay-250" %>
+</div>
+
 
 <%= render 'form', tweet: @tweet %>
-
-<%= link_to 'Show', @tweet %> |
-<%= link_to 'Back', tweets_path %>

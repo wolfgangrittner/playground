@@ -1,27 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tweets</h1>
+<%= link_to new_tweet_path, class: "group inline-flex items-center mb-10" do %>
+  <span class="z-10 rounded-full shadow-sm text-white bg-indigo-600 px-2 py-2 group-hover:bg-indigo-500 transition delay-150">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-7 h-7">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+    </svg>
+  </span>
+  <span class="leading-7 z-0 opacity-0 group-hover:opacity-100 transition delay-200 duration-300 rounded-full shadow-sm text-white bg-indigo-500 py-2 h-11 -m-11 pl-12 pr-4">New Tweet</span>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.body %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Tweet', new_tweet_path %>
+<ul class="space-y-5">
+  <% @tweets.each do |tweet| %>
+    <li class="rounded overflow-hidden bg-white space-y-2 shadow max-w-md">
+      <div class="p-4"><%= tweet.body %></div>
+      <div class="mx-4 py-3 flex justify-end space-x-3">
+        <%= link_to 'Edit', edit_tweet_path(tweet), class: "rounded shadow-sm text-white bg-indigo-600 px-2 py-1 hover:bg-indigo-500 transition delay-250" %>
+      </div>
+    </li>
+  <% end %>
+</ul>
